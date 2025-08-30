@@ -240,45 +240,44 @@ nav ul li a:hover::after {
     margin-left: 30px;
 }
 
-/* Grid layout for image cards */
+
 .work-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px;
     margin-top: 50px;
 }
 
-/* Each work item card */
+
 .work {
     position: relative;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
     overflow: hidden;
-    height: 350px;                        /* Equal height for all cards */
-    background: #111;                    /* Dark background instead of white */
+    height: 350px;                        
+    background: #111;                   
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
 
-/* Images inside cards */
+
 .work img {
     width: 100%;
     height: 100%;
-    object-fit: contain;                 /* Show full image */
+    object-fit: contain;                 
     border-radius: 10px;
     display: block;
     transition: transform 0.5s ease;
-    background: transparent;            /* Transparent so no white block */
-}
+    background: transparent;            
 
-/* Zoom effect on hover */
+}
 .work:hover img {
     transform: scale(1.05);
 }
 
-/* Overlay layer on hover */
+
 .layer {
     width: 100%;
     height: 0;
@@ -298,19 +297,18 @@ nav ul li a:hover::after {
     transition: height 0.5s ease;
 }
 
-/* Expand overlay on hover */
+
 .work:hover .layer {
     height: 100%;
 }
 
-/* Overlay title text */
+
 .layer h3 {
     font-weight: 500;
     margin-bottom: 20px;
     color: #fff;
 }
 
-/* Link button inside overlay */
 .layer a {
     margin-top: 20px;
     color: #ff004f;
@@ -347,6 +345,34 @@ nav ul li a:hover::after {
 .btn:hover{
     background: #ff004f;
 }
+.hidden {
+    display: none;
+}
+
+
+.work.show {
+    display: flex !important;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 992px) {
+  .work-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .work-list { grid-template-columns: 1fr; }
+}
+
 
 .contact-left{
     flex-basis: 35%;
